@@ -8,8 +8,8 @@ namespace RestaurantControl.Domain.Entities
     {
         public string Nome { get; set; }
         public double Valor { get; set; }
-        public int RestaurantId { get; set; }
 
+        public int RestaurantId { get; set; }
         public virtual Restaurant Restaurant { get; set; }
     }
 }

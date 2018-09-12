@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RestaurantControl.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RestaurantControl.Infra.Data.Mappings
 {
@@ -11,8 +9,11 @@ namespace RestaurantControl.Infra.Data.Mappings
         public override void Configure(EntityTypeBuilder<Dish> builder)
         {
             base.Configure(builder);
-            //builder.ToTable("Prato");
+            builder.ToTable("Prato");
             builder.Property(p => p.Nome).IsRequired().HasMaxLength(100);
+
+            //Foreign Key
+            builder.HasOne(d => d.Restaurant).WithMany(r => r.Dishes).HasForeignKey(d => d.RestaurantId);
         }
     }
 }

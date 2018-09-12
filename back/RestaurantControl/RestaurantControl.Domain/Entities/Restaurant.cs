@@ -8,7 +8,7 @@ namespace RestaurantControl.Domain.Entities
     {
         public string Nome { get; set; }
 
-        public ICollection<Dish> Dishes { get; set; }
+        public virtual ICollection<Dish> Dishes { get; set; }
 
         public Restaurant()
         {
