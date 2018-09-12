@@ -6,7 +6,7 @@ namespace RestaurantControl.Domain.Entities
 {
     public class Restaurant : BaseClass
     {
-        public string RazaoSocial { get; set; }
+        public string Nome { get; set; }
 
         public ICollection<Dish> Dishes { get; set; }
 

@@ -9,10 +9,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Context\" />
-    <Folder Include="Mappings\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RestaurantControl.Domain\RestaurantControl.Domain.csproj" />
   </ItemGroup>
 
 </Project>
