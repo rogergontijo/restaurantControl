@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\RestaurantControl.Application\RestaurantControl.Application.csproj" />
     <ProjectReference Include="..\RestaurantControl.Infra.Data\RestaurantControl.Infra.Data.csproj" />
+    <ProjectReference Include="..\RestaurantControl.Infra.IoC\RestaurantControl.Infra.IoC.csproj" />
   </ItemGroup>
 
 </Project>

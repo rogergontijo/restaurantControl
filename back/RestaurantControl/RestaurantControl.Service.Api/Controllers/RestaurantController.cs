@@ -78,7 +78,7 @@ namespace RestaurantControl.Service.Api.Controllers
         {
             try
             {
-                _appService.Update(dishDTO);
+                _appService.Update(restaurantDTO);
                 return new OkResult();
             }
             catch (Exception ex)

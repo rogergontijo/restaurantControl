@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using RestaurantControl.Application.AutoMapper;
 using RestaurantControl.Infra.Data.Context;
+using RestaurantControl.Infra.IoC;
 
 namespace RestaurantControl.Service.Api
 {
@@ -20,7 +15,7 @@ namespace RestaurantControl.Service.Api
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            //AutoMapperConfig.RegisterMappings();
+            AutoMapperConfig.RegisterMappings();
         }
 
         public IConfiguration Configuration { get; }
@@ -28,10 +23,10 @@ namespace RestaurantControl.Service.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //var di = new DependencyInjection(services);
+            var injection = new IoC(services);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<ContextDb>(options => options.UseSqlServer(Configuration.GetConnectionString("DbRestaurant")));
-            //di.RegisterServices();
+            injection.RegisterServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,11 +40,11 @@ namespace RestaurantControl.Service.Api
             app.UseMvc();
             //app.UseHttpsRedirection();
 
-            /*using (var serviceEscope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            using (var serviceEscope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                var dbContext = serviceEscope.ServiceProvider.GetService<DbContexto>();
+                var dbContext = serviceEscope.ServiceProvider.GetService<ContextDb>();
                 dbContext.Database.Migrate();
-            }*/
+            }
         }     
     }
 }
