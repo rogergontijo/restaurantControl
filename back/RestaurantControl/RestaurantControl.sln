@@ -13,13 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{59A114AD-D914-4E37-BEB0-F80733B2FEF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantControl.Application", "RestaurantControl.Application\RestaurantControl.Application.csproj", "{E2B185BB-76E6-47A0-810A-7852C5C86A06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantControl.Application", "RestaurantControl.Application\RestaurantControl.Application.csproj", "{E2B185BB-76E6-47A0-810A-7852C5C86A06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantControl.Domain", "RestaurantControl.Domain\RestaurantControl.Domain.csproj", "{1E45CBFE-4E5E-42EB-A6CB-3C2F69066FF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantControl.Domain", "RestaurantControl.Domain\RestaurantControl.Domain.csproj", "{1E45CBFE-4E5E-42EB-A6CB-3C2F69066FF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantControl.Infra.Data", "RestaurantControl.Infra.Data\RestaurantControl.Infra.Data.csproj", "{BB464F6C-F604-41EE-AC13-49D5E651999C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantControl.Infra.Data", "RestaurantControl.Infra.Data\RestaurantControl.Infra.Data.csproj", "{BB464F6C-F604-41EE-AC13-49D5E651999C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantControl.Service.Api", "RestaurantControl.Service.Api\RestaurantControl.Service.Api.csproj", "{FC7199D8-CA96-48F9-989D-AF8D872AB32F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantControl.Service.Api", "RestaurantControl.Service.Api\RestaurantControl.Service.Api.csproj", "{FC7199D8-CA96-48F9-989D-AF8D872AB32F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - IoC", "4.2 - IoC", "{6A104165-C0D2-47B9-BC5D-C20F42A3BDD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,7 @@ Global
 		{1E45CBFE-4E5E-42EB-A6CB-3C2F69066FF1} = {186CE480-3EBC-499B-A497-49C4E805292F}
 		{BB464F6C-F604-41EE-AC13-49D5E651999C} = {59A114AD-D914-4E37-BEB0-F80733B2FEF8}
 		{FC7199D8-CA96-48F9-989D-AF8D872AB32F} = {09B8F9C4-3FC5-474B-BFA0-DA77B4B8785E}
+		{6A104165-C0D2-47B9-BC5D-C20F42A3BDD6} = {F11EA7BE-1755-4C6C-8207-848E63409C63}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {682CA0A8-352C-48D1-BAB9-E21886968848}
