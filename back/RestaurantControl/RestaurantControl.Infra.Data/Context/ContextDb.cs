@@ -13,8 +13,8 @@ namespace RestaurantControl.Infra.Data.Context
         public DbSet<Restaurant> Restaurants { get; set; }
         public DbSet<Dish> Dishes { get; set; }
 
-        private bool _rollBack;
-        public IDbContextTransaction Transaction { get; private set; }
+        //private bool _rollBack;
+        //public IDbContextTransaction Transaction { get; private set; }
 
         public ContextDb(DbContextOptions<ContextDb> options)
             : base (options)
@@ -24,44 +24,45 @@ namespace RestaurantControl.Infra.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            
             modelBuilder.ApplyConfiguration(new RestaurantMap());
             modelBuilder.ApplyConfiguration(new DishMap());            
         }
 
-        public IDbContextTransaction BeginTransaction() => Transaction ?? (Transaction = this.Database.BeginTransaction());
+        //public IDbContextTransaction BeginTransaction() => Transaction ?? (Transaction = this.Database.BeginTransaction());
 
         /// <summary>
         /// Método responsável por desfazer uma transaction
         /// </summary>
-        private void RollBack()
+        /*private void RollBack()
         {
             if (Transaction != null && !_rollBack)
             {
                 Transaction.Rollback();
                 _rollBack = true;
             }
-        }
+        }*/
 
         /// <summary>
         /// Método responsável por persistir os dados no banco
         /// </summary>
-        public override int SaveChanges()
+        /*public override int SaveChanges()
         {
             try
-            {                
+            {
+                ChangeTracker.DetectChanges();
                 return base.SaveChanges();
             }
             catch (Exception ex)
-            {
-                RollBack();
+            {                
                 throw new Exception(ex.Message);
             }
-        }
+        }*/
 
         /// <summary>
         /// Método responsável por realizar o commit da transaction
         /// </summary>
-        private void Commit()
+        /*private void Commit()
         {
             if (Transaction != null && !_rollBack)
             {
@@ -69,6 +70,6 @@ namespace RestaurantControl.Infra.Data.Context
                 Transaction.Dispose();
                 Transaction = null;
             }
-        }
+        }*/
     }
 }

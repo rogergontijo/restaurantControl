@@ -19,13 +19,15 @@ namespace RestaurantControl.Domain.Services
             _validator = validator;
         }
 
-        public void Insert(TEntity entity)
-        {
+        public TEntity Insert(TEntity entity)
+        {            
             var isValid = _validator.ValidateBeforeInsert(entity);
             if (isValid)
             {
                 _repository.Insert(entity);
             }
+
+            return entity;
         }
 
         public void Update(TEntity entity)
@@ -54,12 +56,7 @@ namespace RestaurantControl.Domain.Services
         public TEntity GetById(int id)
         {
             return _repository.GetById(id);
-        }
-
-        public TEntity GetByName(string name)
-        {
-            return _repository.GetByName(name);
-        }        
+        }              
 
         public void Dispose()
         {

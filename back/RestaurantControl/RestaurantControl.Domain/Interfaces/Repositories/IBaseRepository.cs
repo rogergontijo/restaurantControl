@@ -9,8 +9,7 @@ namespace RestaurantControl.Domain.Interfaces.Repositories
         void Update(TEntity entity);
         void Delete(int id);
         TEntity GetById(int id);
-        IEnumerable<TEntity> GetAll();
-        TEntity GetByName(string name);
+        IEnumerable<TEntity> GetAll();        
         void Dispose();
     }
 }

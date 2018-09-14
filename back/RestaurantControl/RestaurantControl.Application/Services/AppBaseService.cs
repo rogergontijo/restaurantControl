@@ -26,16 +26,12 @@ namespace RestaurantControl.Application.Services
         public TEntityDTO GetById(int id)
         {
             return Mapper.Map<TEntityDomain, TEntityDTO>(_service.GetById(id));
-        }
+        }        
 
-        public TEntityDTO GetByName(string name)
+        public TEntityDTO Insert(TEntityDTO entityDTO)
         {
-            return Mapper.Map<TEntityDomain, TEntityDTO>(_service.GetByName(name));
-        }
-
-        public void Insert(TEntityDTO entityDTO)
-        {
-            _service.Insert(Mapper.Map<TEntityDTO, TEntityDomain>(entityDTO));
+            var entity = Mapper.Map<TEntityDTO, TEntityDomain>(entityDTO);
+            return Mapper.Map<TEntityDomain, TEntityDTO>(_service.Insert(entity));            
         }
 
         public void Update(TEntityDTO entityDTO)

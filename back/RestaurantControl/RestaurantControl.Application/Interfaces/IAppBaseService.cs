@@ -9,12 +9,11 @@ namespace RestaurantControl.Application.Interfaces
         where TEntityDomain : BaseClass
         where TEntityDTO : class
     {
-        void Insert(TEntityDTO entityDTO);
+        TEntityDTO Insert(TEntityDTO entityDTO);
         void Update(TEntityDTO entityDTO);
         void Delete(int id);
         TEntityDTO GetById(int id);
-        IEnumerable<TEntityDTO> GetAll();
-        TEntityDTO GetByName(string name);
+        IEnumerable<TEntityDTO> GetAll();        
         void Dispose();
     }
 }

@@ -13,8 +13,8 @@ namespace RestaurantControl.Infra.Data.Mappings
         public virtual void Configure(EntityTypeBuilder<TEntity> builder)
         {
             builder.HasKey(p => p.Id);
-            builder.Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Property(p => p.DataHoraCadastro).IsRequired();
+            builder.Property(p => p.Id).IsRequired().HasColumnName("Id");
+            builder.Property(p => p.DataHoraCadastro).IsRequired().HasColumnName("DataHoraCadastro");
         }
     }
 }

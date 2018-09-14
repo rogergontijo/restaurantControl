@@ -10,7 +10,9 @@ namespace RestaurantControl.Infra.Data.Mappings
         {
             base.Configure(builder);
             builder.ToTable("Prato");
-            builder.Property(p => p.Nome).IsRequired().HasMaxLength(100);
+            builder.Property(p => p.Nome).IsRequired().HasMaxLength(100).HasColumnName("Nome");
+            builder.Property(p => p.Valor).IsRequired().HasColumnName("Valor");
+            builder.Property(p => p.RestaurantId).IsRequired().HasColumnName("RestauranteId");
 
             //Foreign Key
             builder.HasOne(d => d.Restaurant).WithMany(r => r.Dishes).HasForeignKey(d => d.RestaurantId);

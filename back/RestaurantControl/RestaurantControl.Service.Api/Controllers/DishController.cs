@@ -62,9 +62,8 @@ namespace RestaurantControl.Service.Api.Controllers
         public IActionResult Post([FromBody] DishDTO dishDTO)
         {
             try
-            {
-                _appService.Insert(dishDTO);
-                return new OkResult();
+            {                
+                return new OkObjectResult(_appService.Insert(dishDTO));
             }
             catch (Exception ex)
             {

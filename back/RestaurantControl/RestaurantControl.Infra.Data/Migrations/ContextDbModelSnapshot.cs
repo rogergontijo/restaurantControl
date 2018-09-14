@@ -23,17 +23,22 @@ namespace RestaurantControl.Infra.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DataHoraCadastro");
+                    b.Property<DateTime>("DataHoraCadastro")
+                        .HasColumnName("DataHoraCadastro");
 
                     b.Property<string>("Nome")
                         .IsRequired()
+                        .HasColumnName("Nome")
                         .HasMaxLength(100);
 
-                    b.Property<int>("RestaurantId");
+                    b.Property<int>("RestaurantId")
+                        .HasColumnName("RestauranteId");
 
-                    b.Property<double>("Valor");
+                    b.Property<double>("Valor")
+                        .HasColumnName("Valor");
 
                     b.HasKey("Id");
 
@@ -46,12 +51,15 @@ namespace RestaurantControl.Infra.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnName("Id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DataHoraCadastro");
+                    b.Property<DateTime>("DataHoraCadastro")
+                        .HasColumnName("DataHoraCadastro");
 
                     b.Property<string>("Nome")
                         .IsRequired()
+                        .HasColumnName("Nome")
                         .HasMaxLength(100);
 
                     b.HasKey("Id");

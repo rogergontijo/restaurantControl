@@ -27,28 +27,26 @@ namespace RestaurantControl.Infra.Data.Repositories
         public TEntity GetById(int id)
         {
             return _context.Set<TEntity>().Find(id);
-        }
-
-        public TEntity GetByName(string name)
-        {
-            throw new NotImplementedException();
-        }
+        }       
 
         public void Insert(TEntity entity)
         {
             _context.Set<TEntity>().Add(entity);
+            _context.SaveChanges();
         }
 
         public void Update(TEntity entity)
         {
             _context.Set<TEntity>().Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var entity = _context.Set<TEntity>().Find(id);
-            _context.Set<TEntity>().Remove(entity);
+            _context.Set<TEntity>().Remove(entity);            
+            _context.SaveChanges();
         }
 
         public void Dispose()

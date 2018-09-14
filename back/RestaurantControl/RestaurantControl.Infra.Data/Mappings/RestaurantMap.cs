@@ -13,7 +13,7 @@ namespace RestaurantControl.Infra.Data.Mappings
         {
             base.Configure(builder);
             builder.ToTable("Restaurante");
-            builder.Property(p => p.Nome).IsRequired().HasMaxLength(100);            
+            builder.Property(p => p.Nome).IsRequired().HasMaxLength(100).HasColumnName("Nome");            
         }
     }
 }

@@ -31,23 +31,23 @@ namespace RestaurantControl.Infra.Data.Migrations
                     DataHoraCadastro = table.Column<DateTime>(nullable: false),
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     Valor = table.Column<double>(nullable: false),
-                    RestaurantId = table.Column<int>(nullable: false)
+                    RestauranteId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Prato", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Prato_Restaurante_RestaurantId",
-                        column: x => x.RestaurantId,
+                        name: "FK_Prato_Restaurante_RestauranteId",
+                        column: x => x.RestauranteId,
                         principalTable: "Restaurante",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Prato_RestaurantId",
+                name: "IX_Prato_RestauranteId",
                 table: "Prato",
-                column: "RestaurantId");
+                column: "RestauranteId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
