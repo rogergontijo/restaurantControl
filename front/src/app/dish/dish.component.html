@@ -1,0 +1,22 @@
+<h3>Pratos</h3>
+
+<a class="waves-effect waves-light btn" (click)="onCadastrarNovo()" >Cadastrar novo</a>
+
+<table class="striped">
+  <thead>
+    <tr>
+        <th>Id</th>
+        <th>Prato</th>        
+        <th>Valor</th>
+        <th>Restaurante</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dish of dishes" (click)="onRowClick(dish.id)" >
+      <td>{{ dish?.id }}</td>
+      <td>{{ dish?.nome }}</td>      
+      <td>{{ dish?.valor | currency:'BRL':true }}</td>      
+      <td>{{ dish.restaurant?.nome }}</td>      
+    </tr>    
+  </tbody>
+</table>

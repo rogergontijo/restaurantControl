@@ -1,9 +1,9 @@
 ﻿using RestaurantControl.Domain.Entities;
 using RestaurantControl.Domain.Interfaces.Repositories;
 using RestaurantControl.Infra.Data.Context;
-using System;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace RestaurantControl.Infra.Data.Repositories
 {
@@ -12,6 +12,11 @@ namespace RestaurantControl.Infra.Data.Repositories
         public DishRepository(ContextDb context)
             : base(context)
         {
+        }
+
+        public override IEnumerable<Dish> GetAll()
+        {
+            return _context.Dishes.Include(p => p.Restaurant).ToList();
         }
     }
 }

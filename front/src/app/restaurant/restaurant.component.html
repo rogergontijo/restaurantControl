@@ -1,0 +1,18 @@
+<h3>Restaurantes</h3>
+
+<a class="waves-effect waves-light btn" (click)="onCadastrarNovo()" >Cadastrar novo</a>
+<br>
+<table class="striped">
+  <thead>
+    <tr>
+        <th>Id</th>
+        <th>Restaurante</th>        
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let restaurant of restaurants" (click)="onRowClick(restaurant.id)">      
+      <td>{{ restaurant?.id }}</td>      
+      <td>{{ restaurant?.nome }}</td>
+    </tr>    
+  </tbody>
+</table>

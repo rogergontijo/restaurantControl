@@ -19,7 +19,7 @@ namespace RestaurantControl.Infra.Data.Repositories
             _context = context;
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public virtual IEnumerable<TEntity> GetAll()
         {
             return _context.Set<TEntity>().ToList();
         }
